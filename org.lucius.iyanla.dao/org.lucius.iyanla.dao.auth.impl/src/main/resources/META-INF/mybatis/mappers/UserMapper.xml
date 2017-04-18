@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.lucius.iyanla.dao.auth.impl.UserDao">
+
+	<select id="findAllUsers" resultMap="USER_MAPPER">
+		SELECT
+		*
+		FROM
+		t_user
+	</select>
+
+	<select id="findUserById" parameterType="java.lang.Long" resultMap="USER_MAPPER">
+		SELECT
+		*
+		FROM
+		t_user
+		WHERE
+		id = #{id}
+	</select>
+
+	<resultMap type="org.lucius.iyanla.model.auth.User"
+		id="USER_MAPPER">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+		<result column="password" property="password" />
+		<result column="age" property="age" />
+	</resultMap>
+
+</mapper>

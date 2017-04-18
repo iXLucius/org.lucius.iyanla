@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.components.httpclient
+Bundle-SymbolicName: org.lucius.components.httpclient
+Bundle-Version: ${version}
+Excluded-Exports: org.lucius.components.httpclient.internal.*
+Excluded-Imports: org.lucius.components.httpclient

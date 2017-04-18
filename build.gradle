@@ -1,0 +1,273 @@
+import java.io.File;
+
+group = "org.lucius.framework"
+version = '0.0.1.SNAPSHOT'
+
+buildscript {
+    repositories {
+        maven {
+			url "http://127.0.0.1:8082/nexus/content/groups/public/"
+		}
+    }
+    dependencies { classpath 'org.eclipse.virgo.bundlor:bundlor-plugin:0.2' }
+}
+
+ext {
+	moduleProjects = subprojects.findAll {
+		!it.name.equals('org.lucius.iyanla') && !it.name.equalsIgnoreCase('org.lucius.components') && !it.name.equals('org.lucius.iyanla.dao') && !it.name.equals('org.lucius.iyanla.model') && !it.name.equals('org.lucius.iyanla.portal') && !it.name.equals('org.lucius.iyanla.service') && !it.name.equals('org.lucius.iyanla.orm')
+	}
+	
+	
+	
+}
+
+configurations.all {
+	
+    // check for updates every build
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    
+}
+
+configure(allprojects){
+	ext.springVersion = '4.2.9.RELEASE_1'
+	ext.cglibVersion = '3.2.4_1'
+	ext.eclipseOsgiVersion = '3.9.1.v20140110-1610'
+	ext.eclipseOsgiServiceVersion = '3.3.100.v20130513-1956'
+	ext.commonsLang3Version = '3.3.2'
+	ext.mybatisVersion = '3.4.4'
+	ext.mybatisSpringVersion = '1.3.1'
+	ext.mysqlConnectorJavaVersion = '6.0.6'
+	ext.geminiBlueprintVersion = '2.0.0.RELEASE'
+	ext.commonsDbcp2Version = '2.1.1'
+	ext.fasterxmlJacksonVersion = '2.8.8'
+	ext.freemarkerVersion = '2.3.23'
+}
+
+configure(allprojects.findAll { !it.name.equalsIgnoreCase('org.lucius.iyanla') && !it.name.equalsIgnoreCase('org.lucius.components') && !it.name.equalsIgnoreCase('org.lucius.iyanla.dao') && !it.name.equalsIgnoreCase('org.lucius.iyanla.model') && !it.name.equalsIgnoreCase('org.lucius.iyanla.portal') && !it.name.equalsIgnoreCase('org.lucius.iyanla.service') && !it.name.equalsIgnoreCase('org.lucius.iyanla.orm')}) { project ->
+	group = "org.lucius.iyanla"
+	version = '0.0.1.SNAPSHOT'
+	
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: 'maven'
+	apply plugin: 'org.eclipse.virgo.bundlor'
+	
+	bundlor {
+	    manifestTemplatePath = "template.mf"
+	    //不检验生成manifest，如果不配置这个选项的话，必须要指定导入包的版本
+	    failOnWarnings = false
+	}
+	
+	eclipse {
+	    classpath {
+	        downloadJavadoc = false
+	        downloadSources = false
+	    }
+	}
+	
+	// 解决使用 OSGi 插件的一个 bug  
+    classes.doLast {  
+        // without this, the jar task fails with "java.lang.IllegalArgumentException: A Jar can only accept a valid file or directory:" as underlying cause  
+        ant.mkdir(dir: "$buildDir/classes/main")  
+    } 
+    
+    compileJava {
+		sourceCompatibility = 1.8
+		targetCompatibility = 1.8
+		options.encoding = 'UTF-8'
+	}
+
+	compileTestJava {
+		sourceCompatibility = 1.8
+		targetCompatibility = 1.8
+		options.encoding = 'UTF-8'
+		options.compilerArgs += "-parameters"
+	}
+
+	[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+	
+	repositories {
+		maven {
+			url "http://127.0.0.1:8082/nexus/content/groups/public/"
+			artifactUrls "https://repo1.maven.org/maven2"
+			artifactUrls "http://dist.wso2.org/maven2/"
+		}
+	}
+	
+	task sourcesJar(type: Jar, dependsOn: classes) {
+		classifier = 'sources'
+		from sourceSets.main.allSource
+		into ('build/src') 
+		// Don't include or exclude anything explicitly by default. See SPR-12085.
+	}
+	
+	/*task javadocJar(type: Jar) {
+		classifier = "javadoc"
+		from javadoc
+		into ('build/docs')
+	}*/
+	
+	task copyToLib(type: Copy) {
+	    from configurations.runtime
+	    into ('build/dependencies')
+	}
+	
+	jar {
+		exclude 'LICENSE.txt','NOTICE.txt','ROOTDOC.TXT','license.txt','notice.txt','rootdoc.txt'
+    	exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA','META-INF/*.rsa', 'META-INF/*.sf', 'META-INF/*.dsa' 
+    	exclude 'META-INF/NOTICE', 'META-INF/NOTICE.txt','META-INF/notice', 'META-INF/notice.txt'
+    	exclude 'META-INF/LICENSE', 'META-INF/LICENSE.txt','META-INF/license', 'META-INF/license.txt'
+    	exclude 'META-INF/DEPENDENCIES','META-INF/dependencies' 
+	}
+	
+	jar.dependsOn copyToLib
+	
+	uploadArchives {
+		repositories {  
+			mavenDeployer {
+				//userName  和 password 为maven的用户名和密码  
+				snapshotRepository(url: "http://127.0.0.1:8082/nexus/content/repositories/snapshots/") {  
+					authentication(userName: "admin", password: "admin123")  
+				}
+				
+				repository(url: "http://127.0.0.1:8082/nexus/content/repositories") {
+		            authentication(userName: "admin", password: "admin123")
+		        }
+				
+                pom.project {
+		            version project.version.replaceAll(".SNAPSHOT","-SNAPSHOT")//版本号
+		            artifactId project.name
+		            groupId project.group
+		            packaging project.name.equalsIgnoreCase("org.lucius.iyanla") || project.name.equals('org.lucius.iyanla.dao') || project.name.equals('org.lucius.iyanla.portal') && project.name.equals('org.lucius.iyanla.service') ? "pom" : "jar"
+		            description 'build by gradle'
+		        }
+			}  
+		}  
+	}
+	
+	artifacts {  
+	    archives jar
+	    archives sourcesJar
+		//archives javadocJar
+	}
+	
+}
+
+task copyPlanToVirgoPicupDir(type:Copy){
+	from './org.lucius.iyanla-0.0.1.plan'
+	into System.getenv()['VIRGO_HOME_3.7.0']+"/pickup";
+}
+
+
+task startVirgoTomcat(type:Exec) {
+  workingDir System.getenv()['VIRGO_HOME_3.7.0']+"/bin"
+
+  commandLine 'cmd', '/c', 'startup.bat -clean -debug'
+
+  ext.output = {
+    return standardOutput.toString()
+  }
+}
+
+task stopVirgoTomcat(type:Exec) {
+  workingDir System.getenv()['VIRGO_HOME_3.7.0']+"/bin"
+
+  commandLine 'cmd', '/c', 'shutdown.bat'
+
+  ext.output = {
+    return standardOutput.toString()
+  }
+}
+
+startVirgoTomcat.dependsOn copyPlanToVirgoPicupDir
+
+task openLogDir(type:Exec) {
+  workingDir System.getenv()['VIRGO_HOME_3.7.0']+"/serviceability/logs"
+
+  commandLine 'cmd', '/c', 'start .'
+
+  ext.output = {
+    return standardOutput.toString()
+  }
+}
+
+task clearVirgoTomcat {
+	def logsDir = new File(System.getenv()['VIRGO_HOME_3.7.0'] + File.separator + "logs");
+	def usrDir = new File(System.getenv()['VIRGO_HOME_3.7.0'] + File.separator + "repository" + File.separator + "usr");
+	def workDir = new File(System.getenv()['VIRGO_HOME_3.7.0'] + File.separator + "work");
+	def serviceabilityDir = new File(System.getenv()['VIRGO_HOME_3.7.0'] + File.separator + "serviceability");
+	
+	logsDir.deleteDir();
+	usrDir.deleteDir();
+	workDir.deleteDir();
+	serviceabilityDir.deleteDir();
+}
+
+configure(rootProject) {
+
+	description = "org.lucius.iyanla"
+
+	apply plugin: "groovy"
+
+	// don't publish the default jar for the root project
+	configurations.archives.artifacts.clear()
+	
+	
+	task deployToLocalVirgoServer(type:Copy){
+		moduleProjects.each { subproject ->
+			from subproject.jar
+			from file("$subproject.buildDir" + File.separator + "dependencies")
+			into (System.getenv()['VIRGO_HOME_3.7.0']+"/repository/usr")
+		}
+	}
+	
+	deployToLocalVirgoServer.dependsOn "distZip"
+	startVirgoTomcat.dependsOn "deployToLocalVirgoServer"
+
+	task distZip(type: Zip) {
+		group = "Distribution"
+		baseName = "org.lucius.iyanla"
+		classifier = "dist"
+		description = "Builds -${classifier} archive, containing all jars and docs, " + "suitable for community download page."
+
+		ext.baseDir = "${baseName}-${project.version}";
+
+		moduleProjects.each { subproject ->
+			into ("${baseDir}/dist") {
+				from subproject.jar
+			}
+			
+			into ("${baseDir}/dependencies") {
+				//将每个子项目所用到的依赖拷贝到发布目录
+				from file("$subproject.buildDir" + File.separator + "dependencies")
+				include('**/*.jar')
+			}
+			
+			into ("${baseDir}/src") {
+				if (subproject.tasks.findByPath("sourcesJar")) {
+					from subproject.sourcesJar
+				}
+			}
+			
+			into ("${baseDir}/docs") {
+				if (subproject.tasks.findByPath("javadocJar")) {
+					from subproject.javadocJar
+				}
+			}
+			
+			into ("${baseDir}/dist-with-dependencies") {
+				from subproject.jar
+				//将每个子项目所用到的依赖拷贝到发布目录
+				from file("$subproject.buildDir" + File.separator + "dependencies")
+				include('**/*.jar')
+			}
+			
+		}
+	}
+
+	artifacts {
+		archives distZip
+	}
+}
+
+

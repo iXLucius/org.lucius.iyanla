@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.iyanla.service.auth.impl
+Bundle-SymbolicName: org.lucius.iyanla.service.auth.impl
+Bundle-Version: ${version}
+Import-Package: org.lucius.iyanla.model.auth,
+ org.springframework.jdbc.datasource,
+ org.springframework.transaction.annotation
+Excluded-Exports: org.lucius.iyanla.service.auth.impl.*
+Excluded-Imports: org.lucius.iyanla.service.auth.impl

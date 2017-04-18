@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.iyanla.orm.hibernate
+Bundle-SymbolicName: org.lucius.iyanla.orm.hibernate
+Bundle-Version: ${version}
+Excluded-Imports: org.lucius.iyanla.orm.hibernate

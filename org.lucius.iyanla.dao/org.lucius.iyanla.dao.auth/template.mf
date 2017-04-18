@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.iyanla.dao.auth
+Bundle-SymbolicName: org.lucius.iyanla.dao.auth
+Bundle-Version: ${version}
+Excluded-Exports: org.lucius.iyanla.dao.auth.internal.*
+Excluded-Imports: org.lucius.iyanla.dao.auth

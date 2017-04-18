@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.iyanla.service.auth
+Bundle-SymbolicName: org.lucius.iyanla.service.auth
+Bundle-Version: ${version}
+Excluded-Imports: org.lucius.iyanla.service.auth

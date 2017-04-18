@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plan name="org.lucius.iyanla-0.0.1.plan" version="0.0.1.SNAPSHOT" scoped="false" atomic="false"
+        xmlns="http://www.eclipse.org/virgo/schema/plan"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+		        http://www.eclipse.org/virgo/schema/plan 
+		        http://www.eclipse.org/virgo/schema/plan/eclipse-virgo-plan.xsd">
+	<artifact type="bundle" name="org.lucius.iyanla.dao.auth" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.iyanla.dao.auth.impl" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.iyanla.dba" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.iyanla.host" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.iyanla.model.auth" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.iyanla.portal.auth" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.iyanla.service.auth" version="0.0.1.SNAPSHOT"/>
+	<artifact type="bundle" name="org.lucius.iyanla.service.auth.impl" version="0.0.1.SNAPSHOT"/>
+</plan>

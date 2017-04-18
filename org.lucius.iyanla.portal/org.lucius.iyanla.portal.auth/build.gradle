@@ -1,0 +1,38 @@
+import java.io.File
+
+//资源文件拷贝目录修改
+processResources{
+    into('WEB-INF/classes/resources/i18n') {  
+        from "$projectDir/src/main/resources/resources/i18n"
+    }
+    into(''){
+    	from "$projectDir/src/main/resources"
+    }
+}
+
+//修改class文件在jar包中的目录，修改为jar包中的WEB-INF/classes目录下
+tasks.withType(JavaCompile) {
+    destinationDir = new File(sourceSets.main.output.classesDir,"/WEB-INF/classes")
+}
+
+
+dependencies {
+	compile (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-io', version: "${geminiBlueprintVersion}"){
+		transitive = false
+	}
+	compile (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-extender', version: "${geminiBlueprintVersion}"){
+		transitive = false
+	}
+	compile (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-core', version: "${geminiBlueprintVersion}"){
+		transitive = false
+	}
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${fasterxmlJacksonVersion}"
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${fasterxmlJacksonVersion}"
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${fasterxmlJacksonVersion}"
+	compile group: 'org.freemarker', name: 'freemarker', version: "${freemarkerVersion}"
+	
+	
+	
+	compile project(':org.lucius.iyanla.service:org.lucius.iyanla.service.auth')
+	compile project(':org.lucius.iyanla.dao:org.lucius.iyanla.dao.auth')
+}

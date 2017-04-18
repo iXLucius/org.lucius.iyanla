@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.iyanla.orm.mybatis
+Bundle-SymbolicName: org.lucius.iyanla.orm.mybatis
+Bundle-Version: ${version}
+Import-Package: org.apache.ibatis.io,
+ com.mysql.jdbc,
+ com.mysql.cj.jdbc
+Excluded-Imports: org.lucius.iyanla.orm.mybatis

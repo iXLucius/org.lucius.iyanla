@@ -1,0 +1,13 @@
+dependencies {
+	compile (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-io', version: "${geminiBlueprintVersion}"){
+		transitive = false
+	}
+	compile (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-extender', version: "${geminiBlueprintVersion}"){
+		transitive = false
+	}
+	compile (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-core', version: "${geminiBlueprintVersion}"){
+		transitive = false
+	}
+	compile project(':org.lucius.iyanla.service:org.lucius.iyanla.service.auth')
+	compile project(':org.lucius.iyanla.dao:org.lucius.iyanla.dao.auth')
+}

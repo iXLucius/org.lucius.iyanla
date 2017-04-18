@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.iyanla.host
+Bundle-SymbolicName: org.lucius.iyanla.host
+Bundle-Version: ${version}
+Import-Template: org.springframework.*;version="[4.2.9,5)",
+ org.sitemesh.*
+Import-Package: org.springframework.web.filter;version="[4.2.9,5)",
+ org.eclipse.virgo.snaps.core,
+ org.sitemesh.config
+Excluded-Exports: org.lucius.iyanla.host.internal.*
+Excluded-Imports: org.lucius.iyanla.host
+Web-ContextPath: /iyanla

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.iyanla.dao.auth.impl
+Bundle-SymbolicName: org.lucius.iyanla.dao.auth.impl
+Bundle-Version: ${version}
+Import-Package: org.lucius.iyanla.model.auth,
+ org.mybatis.spring,
+ org.apache.ibatis.session
+Excluded-Exports: org.lucius.iyanla.dao.auth.impl.*
+Excluded-Imports: org.lucius.iyanla.dao.auth.impl
+MyBatis-Mapper-Locations: /META-INF/mybatis/mappers;pattern=**/*Mapper.xml
