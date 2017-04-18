@@ -12,3 +12,4 @@ gradle任务
   gradle openLogDir
 6. 发布私服
   gradle uploadArchives
+7. 测试地址：http://localhost:8080/iyanla/auth/app/user/index
