@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.components.codec
+Bundle-SymbolicName: org.lucius.components.codec
+Bundle-Version: ${version}
+Excluded-Exports: org.lucius.components.codec.internal.*
+Excluded-Imports: org.lucius.components.codec

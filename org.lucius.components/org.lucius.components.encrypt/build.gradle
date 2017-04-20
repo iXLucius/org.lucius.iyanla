@@ -1,0 +1,6 @@
+dependencies {
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: "${commonsLang3Version}"
+	compile group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jApiVersion}"
+	compile group: 'org.apache.commons', name: 'commons-compress', version: "${commonsCompressVersion}"
+	compile project(':org.lucius.components:org.lucius.components.codec')
+}

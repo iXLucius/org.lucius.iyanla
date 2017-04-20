@@ -17,8 +17,6 @@ ext {
 		!it.name.equals('org.lucius.iyanla') && !it.name.equalsIgnoreCase('org.lucius.components') && !it.name.equals('org.lucius.iyanla.dao') && !it.name.equals('org.lucius.iyanla.model') && !it.name.equals('org.lucius.iyanla.portal') && !it.name.equals('org.lucius.iyanla.service') && !it.name.equals('org.lucius.iyanla.orm')
 	}
 	
-	
-	
 }
 
 configurations.all {
@@ -33,7 +31,7 @@ configure(allprojects){
 	ext.cglibVersion = '3.2.4_1'
 	ext.eclipseOsgiVersion = '3.9.1.v20140110-1610'
 	ext.eclipseOsgiServiceVersion = '3.3.100.v20130513-1956'
-	ext.commonsLang3Version = '3.3.2'
+	ext.commonsLang3Version = '3.5'
 	ext.mybatisVersion = '3.4.4'
 	ext.mybatisSpringVersion = '1.3.1'
 	ext.mysqlConnectorJavaVersion = '6.0.6'
@@ -41,6 +39,9 @@ configure(allprojects){
 	ext.commonsDbcp2Version = '2.1.1'
 	ext.fasterxmlJacksonVersion = '2.8.8'
 	ext.freemarkerVersion = '2.3.23'
+	ext.guavaVersion = '21.0'
+	ext.slf4jApiVersion='1.7.25'
+	ext.commonsCompressVersion = '1.13'
 }
 
 configure(allprojects.findAll { !it.name.equalsIgnoreCase('org.lucius.iyanla') && !it.name.equalsIgnoreCase('org.lucius.components') && !it.name.equalsIgnoreCase('org.lucius.iyanla.dao') && !it.name.equalsIgnoreCase('org.lucius.iyanla.model') && !it.name.equalsIgnoreCase('org.lucius.iyanla.portal') && !it.name.equalsIgnoreCase('org.lucius.iyanla.service') && !it.name.equalsIgnoreCase('org.lucius.iyanla.orm')}) { project ->

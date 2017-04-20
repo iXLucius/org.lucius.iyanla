@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.components.encrypt
+Bundle-SymbolicName: org.lucius.components.encrypt
+Bundle-Version: ${version}
+Excluded-Exports: org.lucius.components.encrypt.internal.*
+Excluded-Imports: org.lucius.components.encrypt

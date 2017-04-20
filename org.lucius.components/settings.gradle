@@ -1,1 +1,5 @@
 include 'org.lucius.components.httpclient'
+include 'org.lucius.components.captcha'
+include 'org.lucius.components.codec'
+include 'org.lucius.components.encrypt'
+include 'org.lucius.components.rpc'

@@ -1,0 +1,4 @@
+dependencies {
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: "${commonsLang3Version}"
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
+}

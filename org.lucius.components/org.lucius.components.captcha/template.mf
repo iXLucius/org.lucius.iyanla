@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.components.captcha
+Bundle-SymbolicName: org.lucius.components.captcha
+Bundle-Version: ${version}
+Import-Package: sun.misc
+Excluded-Exports: org.lucius.components.captcha.internal.*
+Excluded-Imports: org.lucius.components.captcha
