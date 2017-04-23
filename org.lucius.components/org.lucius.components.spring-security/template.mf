@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.components.spring-security
+Bundle-SymbolicName: org.lucius.components.spring-security
+Bundle-Version: ${version}
+Excluded-Exports: org.lucius.components.spring-security.internal.*
+Excluded-Imports: org.lucius.components.spring-security

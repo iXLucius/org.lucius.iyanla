@@ -1,0 +1,26 @@
+dependencies {
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: "${commonsLang3Version}"
+	compile (group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-security-web', version: '4.2.2.RELEASE_1'){
+		transitive = true
+		exclude group: 'org.springframework', module: 'spring-core'
+		exclude group: 'org.springframework', module: 'spring-context'
+		exclude group: 'org.springframework', module: 'spring-expression'
+		exclude group: 'org.springframework', module: 'spring-web'
+		exclude group: 'org.springframework', module: 'spring-aop'
+		exclude group: 'org.springframework', module: 'spring-beans'
+		exclude group: 'org.springframework', module: 'spring-core'
+		exclude group: 'org.springframework.security', module: 'spring-security-core'
+		exclude group: 'aopalliance', module: 'aopalliance'
+		
+	}
+	compile (group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-security-core', version: '4.2.2.RELEASE_1'){
+		transitive = true
+		exclude group: 'org.springframework', module: 'spring-core'
+		exclude group: 'org.springframework', module: 'spring-context'
+		exclude group: 'org.springframework', module: 'spring-expression'
+		exclude group: 'org.springframework', module: 'spring-web'
+		exclude group: 'org.springframework', module: 'spring-aop'
+		exclude group: 'org.springframework', module: 'spring-beans'
+		exclude group: 'aopalliance', module: 'aopalliance'
+	}
+}

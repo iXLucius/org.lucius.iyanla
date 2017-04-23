@@ -25,6 +25,30 @@ dependencies {
 	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.cglib', version: "${cglibVersion}"
 	compile project(':org.lucius.iyanla.dao:org.lucius.iyanla.dao.auth')
 	
+	compile (group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-security-web', version: '4.2.2.RELEASE_1'){
+		transitive = true
+		exclude group: 'org.springframework', module: 'spring-core'
+		exclude group: 'org.springframework', module: 'spring-context'
+		exclude group: 'org.springframework', module: 'spring-expression'
+		exclude group: 'org.springframework', module: 'spring-web'
+		exclude group: 'org.springframework', module: 'spring-aop'
+		exclude group: 'org.springframework', module: 'spring-beans'
+		exclude group: 'org.springframework', module: 'spring-core'
+		exclude group: 'org.springframework.security', module: 'spring-security-core'
+		exclude group: 'aopalliance', module: 'aopalliance'
+		
+	}
+	compile (group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-security-core', version: '4.2.2.RELEASE_1'){
+		transitive = true
+		exclude group: 'org.springframework', module: 'spring-core'
+		exclude group: 'org.springframework', module: 'spring-context'
+		exclude group: 'org.springframework', module: 'spring-expression'
+		exclude group: 'org.springframework', module: 'spring-web'
+		exclude group: 'org.springframework', module: 'spring-aop'
+		exclude group: 'org.springframework', module: 'spring-beans'
+		exclude group: 'aopalliance', module: 'aopalliance'
+	}
+	
 	compile files('../libs/org.lucius.framework.sitemesh-3.0.1.jar')
 	//compile files('../libs/oevm.org.aopalliance_1.0.0.jar')
 	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.aopalliance', version: '1.0_6'
