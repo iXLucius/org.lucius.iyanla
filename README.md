@@ -20,3 +20,9 @@ gradle任务
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"或者
 Bundle-RequiredExecutionEnvironment: J2SE-1.6
 可以删除这些jar包中的相关限制
+
+12.参考资料：
+https://www.eclipse.org/gemini/blueprint/documentation/reference/2.1.0.M2/html/index.html
+http://docs.spring.io/spring-data/redis/docs/1.8.1.RELEASE/reference/pdf/spring-data-redis-reference.pdf
+https://docs.gradle.org/current/dsl/
+https://docs.gradle.org/current/userguide/userguide.html
