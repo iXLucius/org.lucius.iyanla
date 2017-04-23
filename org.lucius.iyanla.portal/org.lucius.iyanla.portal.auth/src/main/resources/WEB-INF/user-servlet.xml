@@ -84,5 +84,5 @@
 	</bean>
 	
 	<osgi:reference id="userService" interface="org.lucius.iyanla.service.auth.IUserService" />
-	
+	<osgi:reference id="redisService" interface="org.lucius.components.redis.IRedisService" />
 </beans>

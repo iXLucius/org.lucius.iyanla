@@ -17,40 +17,38 @@ tasks.withType(JavaCompile) {
 
 
 dependencies {
-	compileOnly (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-io', version: "${geminiBlueprintVersion}"){
-		transitive = false
-	}
-	compileOnly (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-extender', version: "${geminiBlueprintVersion}"){
-		transitive = false
-	}
-	compileOnly (group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-core', version: "${geminiBlueprintVersion}"){
-		transitive = false
-	}
+	compile group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-io', version: "${geminiBlueprintVersion}"
+	compile group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-extender', version: "${geminiBlueprintVersion}"
+	compile group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-core', version: "${geminiBlueprintVersion}"
+	compile group: 'org.eclipse.gemini.blueprint', name: 'gemini-blueprint-extensions', version: "${geminiBlueprintVersion}"
+
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${fasterxmlJacksonVersion}"
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${fasterxmlJacksonVersion}"
 	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${fasterxmlJacksonVersion}"
 	compile group: 'org.freemarker', name: 'freemarker', version: "${freemarkerVersion}"
-	compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-aop', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-aspects', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-beans', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-core', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-context', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-context-support', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-expression', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-instrument', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-jdbc', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-jms', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-messaging', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-orm', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-oxm', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-tx', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-web', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-webmvc-portlet', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-webmvc', version: "${springVersion}"
-	compileOnly group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-websocket', version: "${springVersion}"
+	compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-aop', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-aspects', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-beans', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-core', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-context', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-context-support', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-expression', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-instrument', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-jdbc', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-jms', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-messaging', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-orm', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-oxm', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-tx', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-web', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-webmvc-portlet', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-webmvc', version: "${springVersion}"
+	compile group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.spring-websocket', version: "${springVersion}"
 	
+	compile project(':org.lucius.iyanla.util')
 	compile project(':org.lucius.iyanla.service:org.lucius.iyanla.service.auth')
 	compile project(':org.lucius.iyanla.dao:org.lucius.iyanla.dao.auth')
 	compile project(':org.lucius.components:org.lucius.components.captcha')
+	compile project(':org.lucius.components:org.lucius.components.redis')
 }

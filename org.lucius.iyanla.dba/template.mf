@@ -3,10 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: org.lucius.iyanla.dba
 Bundle-SymbolicName: org.lucius.iyanla.dba
 Bundle-Version: ${version}
-Import-Template: org.springframework.*;version="[4.2.9,5)"
-Import-Package: org.springframework.context.config;version="[4.2.9,5)",
- org.springframework.aop;version="[4.2.9,5)",
- org.springframework.aop.framework;version="[4.2.9,5)",
+Import-Template: org.springframework.*;version="[4.3.7,5)"
+Import-Package: org.springframework.context.config;version="[4.3.7,5)",
+ org.springframework.aop;version="[4.3.7,5)",
+ org.springframework.aop.framework;version="[4.3.7,5)",
  org.aopalliance.aop,
  net.sf.cglib.proxy,
  net.sf.cglib.core,

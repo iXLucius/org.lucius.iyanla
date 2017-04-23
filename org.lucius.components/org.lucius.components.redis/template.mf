@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.components.redis
+Bundle-SymbolicName: org.lucius.components.redis
+Bundle-Version: ${version}
+DynamicImport-Package: *
+Import-Package: org.springframework.context.config;version="[4.3.7,5)",
+ org.springframework.data.redis.connection;version="1.8.1.RELEASE",
+ org.springframework.data.redis.connection.jedis;version="1.8.1.RELEASE",
+ org.springframework.data.redis.serializer;version="1.8.1.RELEASE",
+ org.springframework.data.redis.core;version="1.8.1.RELEASE",
+ redis.clients.jedis
+Excluded-Exports: org.lucius.components.redis.internal.*
+Excluded-Imports: org.lucius.components.redis

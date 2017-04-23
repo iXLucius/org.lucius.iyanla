@@ -11,18 +11,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService implements IUserService {
-	
-	@Resource
-	private IUserDao userDao;
 
-	@Override
-	public User findUserById(Long id) {
-		return userDao.findUserById(1L);
-	}
+    @Resource
+    private IUserDao userDao;
 
-	@Override
-	public List<User> findAllUsers() {
-		return userDao.findAllUsers();
-	}
+    @Override
+    public User findUserById(Long id) {
+        return userDao.findUserById(1L);
+    }
+
+    @Override
+    public List<User> findAllUsers() {
+        return userDao.findAllUsers();
+    }
 
 }

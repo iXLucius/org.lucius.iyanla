@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.iyanla.util
+Bundle-SymbolicName: org.lucius.iyanla.util
+Bundle-Version: ${version}
+Excluded-Imports: org.lucius.iyanla.util

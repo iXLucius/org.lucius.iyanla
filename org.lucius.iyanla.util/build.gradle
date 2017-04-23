@@ -1,0 +1,4 @@
+dependencies {
+	compile project(':org.lucius.iyanla.model:org.lucius.iyanla.model.auth')
+	compile project(':org.lucius.components:org.lucius.components.redis')
+}

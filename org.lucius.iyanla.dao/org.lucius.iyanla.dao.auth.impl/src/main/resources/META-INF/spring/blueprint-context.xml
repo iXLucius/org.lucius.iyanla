@@ -12,7 +12,7 @@
 	<context:component-scan base-package="org.lucius.iyanla.dao.auth.impl"/>
 	
 	<osgi:reference id="sqlSessionFactory" interface="org.apache.ibatis.session.SqlSessionFactory" bean-name="sqlSessionFactory" />
-	
+	 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory" />
 	</bean>

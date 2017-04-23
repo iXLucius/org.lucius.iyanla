@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.components.rpc
+Bundle-SymbolicName: org.lucius.components.rpc
+Bundle-Version: ${version}
+Excluded-Exports: org.lucius.components.rpc.internal.*
+Excluded-Imports: org.lucius.components.rpc

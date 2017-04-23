@@ -13,3 +13,10 @@ gradle任务
 6. 发布私服
   gradle uploadArchives
 7. 测试地址：http://localhost:8080/iyanla/auth/app/user/index
+8. 官网下载的Virgo中带的spring版本为4.2.9，本应用升级至4.3.7
+9. 官网下载的Virgo中带的blueprint版本为2.0.0.RELEASE，本应用升级至2.1.0.M2
+10.需要删除官网下载Virgo中相关repository/ext中spring、blueprint、slf4j相关的jar包
+11.如果遇到启动是要求jdk运行环境比如：
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"或者
+Bundle-RequiredExecutionEnvironment: J2SE-1.6
+可以删除这些jar包中的相关限制
