@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.lucius.components.export
+Bundle-SymbolicName: org.lucius.components.export
+Bundle-Version: ${version}
+Excluded-Exports: org.lucius.components.export.internal.*
+Excluded-Imports: org.lucius.components.export

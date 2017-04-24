@@ -1,0 +1,8 @@
+dependencies {
+	compile group: 'org.apache.commons', name: 'commons-lang3', version: "${commonsLang3Version}"
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: "${fasterxmlJacksonVersion}"
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: "${fasterxmlJacksonVersion}"
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: "${fasterxmlJacksonVersion}"
+	compileOnly group: 'org.slf4j', name: 'slf4j-api', version: "${slf4jApiVersion}"
+	compile group: 'org.msgpack', name: 'jackson-dataformat-msgpack', version: '0.8.12'
+}
