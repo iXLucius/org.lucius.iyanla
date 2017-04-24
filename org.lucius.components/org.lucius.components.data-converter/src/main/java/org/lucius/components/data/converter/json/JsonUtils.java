@@ -14,10 +14,6 @@
 package org.lucius.components.data.converter.json;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.msgpack.jackson.dataformat.MessagePackFactory;
 import org.slf4j.Logger;
@@ -182,52 +178,6 @@ public final class JsonUtils {
             logger.error("convert byte[] to object exception : " , e);
         }
         return null;
-    }
-    
-    public static void main(String[] args) {
-        
-        Map<String, List<User>> x = new HashMap<String, List<User>>();
-        for (int i = 0 ; i < 5; i ++){
-            
-            List<User> users = new ArrayList<User>();
-            
-            for (int j = 0 ; j < 5; j ++){
-                
-                User user = new User();
-                user.setId(j);
-                user.setName("lucius-"+j);
-                user.setPassword("lucius-" + j);
-                user.setGender(j%2==0?User.Gender.FEMALE:User.Gender.MALE);
-                users.add(user);
-            }
-            x.put("index-"+i, users);
-        }
-        
-        String json = JsonUtils.toJson(x);
-        System.out.println(json);
-        
-        x = JsonUtils.fromJson(json, new TypeReference<Map<String, List<User>>>() { });
-        
-        for(List<User> users : x.values()){
-            for(User user:users){
-                System.out.println(user);
-            }
-        }
-        
-        byte[] bs = JsonUtils.messagePackSerialize(x);
-        
-        System.out.println(bs);
-        
-        x = JsonUtils.messagePackDeserialize(bs, new TypeReference<Map<String, List<User>>>() { });
-        
-        System.out.println(x);
-        
-        for(List<User> users : x.values()){
-            for(User user:users){
-                System.out.println(user);
-            }
-        }
-        
     }
 
 }

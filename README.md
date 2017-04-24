@@ -26,3 +26,5 @@ https://www.eclipse.org/gemini/blueprint/documentation/reference/2.1.0.M2/html/i
 http://docs.spring.io/spring-data/redis/docs/1.8.1.RELEASE/reference/pdf/spring-data-redis-reference.pdf
 https://docs.gradle.org/current/dsl/
 https://docs.gradle.org/current/userguide/userguide.html
+
+13. 修改jackson-dataformat-msgpack-0.8.12.jar包中的Import-Package: sun.misc 后面加上;resolution:="optional"

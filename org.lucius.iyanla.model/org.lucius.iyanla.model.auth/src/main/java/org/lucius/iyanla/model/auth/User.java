@@ -4,43 +4,57 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-	private static final long serialVersionUID = -5918618021753103359L;
+    private static final long serialVersionUID = -5918618021753103359L;
 
-	private Long id;
-	private String username;
-	private String password;
-	private int age;
+    public enum Gender {
+        MALE, FEMALE
+    };
 
-	public Long getId() {
-		return id;
-	}
+    private Long id;
+    private String username;
+    private String password;
+    private int age;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private Gender gender;
 
-	public String getUsername() {
-		return username;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public int getAge() {
-		return age;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
 }

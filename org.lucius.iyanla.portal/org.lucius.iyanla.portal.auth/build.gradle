@@ -51,4 +51,5 @@ dependencies {
 	compile project(':org.lucius.iyanla.dao:org.lucius.iyanla.dao.auth')
 	compile project(':org.lucius.components:org.lucius.components.captcha')
 	compile project(':org.lucius.components:org.lucius.components.redis')
+	compile project(':org.lucius.components:org.lucius.components.data-converter')
 }
