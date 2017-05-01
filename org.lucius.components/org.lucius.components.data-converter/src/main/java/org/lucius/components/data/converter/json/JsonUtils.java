@@ -14,6 +14,8 @@
 package org.lucius.components.data.converter.json;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
 
 import org.msgpack.jackson.dataformat.MessagePackFactory;
 import org.slf4j.Logger;
@@ -179,7 +181,61 @@ public final class JsonUtils {
         }
         return null;
     }
-
+    
+    public static <T> T fromJsonThrowable(Reader reader, Class<T> clazz) throws IOException {
+        return objectMapper.readValue(reader, clazz);
+    }
+    
+    public static <T> T fromJsonThrowable(Reader reader, TypeReference<?> typeReference) throws IOException {
+        return objectMapper.readValue(reader, typeReference);
+        
+    }
+    
+    public static <T> T fromJson(Reader reader, Class<T> clazz) throws IOException {
+        try {
+            return fromJsonThrowable(reader, clazz);
+        } catch (IOException e) {
+            logger.error("convert byte[] to object exception : " , e);
+        }
+        return null;
+    }
+    
+    public static <T> T fromJson(Reader reader, TypeReference<?> typeReference) throws IOException {
+        try {
+            return fromJsonThrowable(reader, typeReference);
+        } catch (IOException e) {
+            logger.error("convert byte[] to object exception : " , e);
+        }
+        return null;
+    }
+    
+    public static <T> T fromJsonThrowable(InputStream in, Class<T> clazz) throws IOException {
+        return objectMapper.readValue(in, clazz);
+    }
+    
+    public static <T> T fromJsonThrowable(InputStream in, TypeReference<?> typeReference) throws IOException {
+        return objectMapper.readValue(in, typeReference);
+        
+    }
+    
+    public static <T> T fromJson(InputStream in, Class<T> clazz) throws IOException {
+        try {
+            return fromJsonThrowable(in, clazz);
+        } catch (IOException e) {
+            logger.error("convert byte[] to object exception : " , e);
+        }
+        return null;
+    }
+    
+    public static <T> T fromJson(InputStream in, TypeReference<?> typeReference) throws IOException {
+        try {
+            return fromJsonThrowable(in, typeReference);
+        } catch (IOException e) {
+            logger.error("convert byte[] to object exception : " , e);
+        }
+        return null;
+    }
+    
 }
 
 

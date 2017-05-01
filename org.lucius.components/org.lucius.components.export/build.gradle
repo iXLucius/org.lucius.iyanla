@@ -1,3 +1,15 @@
 dependencies {
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: "${commonsLang3Version}"
+	compile (group: 'org.apache.servicemix.bundles', name: 'org.apache.servicemix.bundles.poi', version: "${poiVersion}"){
+		transitive = true
+		exclude group: 'log4j', module: 'log4j'
+		exclude group: 'javax.servlet', module: 'servlet-api'
+		exclude group: 'commons-codec', module: 'commons-codec'
+		exclude group: 'commons-logging', module: 'commons-logging'
+		exclude group: 'avalon-framework', module: 'avalon-framework'
+		exclude group: 'logkit', module: 'logkit'
+		exclude group: 'stax', module: 'stax-api'
+		exclude group: 'com.github.virtuald', module: 'curvesapi'
+	}
+	compile group: 'org.slf4j', name: 'slf4j-log4j12', version: "${slf4jApiVersion}"
 }

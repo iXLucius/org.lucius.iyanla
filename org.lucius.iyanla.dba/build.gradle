@@ -26,7 +26,10 @@ dependencies {
 	compile group: 'org.mybatis', name: 'mybatis', version: "${mybatisVersion}"
 	compile group: 'mysql', name: 'mysql-connector-java', version: "${mysqlConnectorJavaVersion}"
 	compile group: 'org.mybatis', name: 'mybatis-spring', version: "${mybatisSpringVersion}"
-	compile group: 'org.apache.commons', name: 'commons-dbcp2', version: "${commonsDbcp2Version}"
+	compile (group: 'org.apache.commons', name: 'commons-dbcp2', version: "${commonsDbcp2Version}"){
+		transitive = true
+		exclude group: 'commons-logging', module: 'commons-logging'
+	}
 	compile project(':org.lucius.iyanla.dao:org.lucius.iyanla.dao.auth')
 	compile project(':org.lucius.iyanla.orm:org.lucius.iyanla.orm.mybatis')
 	compile files('../libs/org.lucius.framework.sitemesh-3.0.1.jar')

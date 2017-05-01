@@ -52,4 +52,6 @@ dependencies {
 	compile project(':org.lucius.components:org.lucius.components.captcha')
 	compile project(':org.lucius.components:org.lucius.components.redis')
 	compile project(':org.lucius.components:org.lucius.components.data-converter')
+	compile project(':org.lucius.components:org.lucius.components.httpclient')
+
 }
