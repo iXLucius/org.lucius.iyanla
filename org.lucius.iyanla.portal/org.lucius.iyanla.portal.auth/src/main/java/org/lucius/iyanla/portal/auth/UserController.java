@@ -7,14 +7,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Random;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.http.client.ClientProtocolException;
 import org.lucius.components.captcha.color.SingleColorFactory;
 import org.lucius.components.captcha.filter.predefined.CurvesRippleFilterFactory;
 import org.lucius.components.captcha.filter.predefined.DiffuseRippleFilterFactory;
@@ -24,10 +22,7 @@ import org.lucius.components.captcha.filter.predefined.WobbleRippleFilterFactory
 import org.lucius.components.captcha.service.ConfigurableCaptchaService;
 import org.lucius.components.captcha.utils.encoder.EncoderHelper;
 import org.lucius.components.data.converter.json.JsonUtils;
-import org.lucius.components.httpclient.HttpClientUtil;
 import org.lucius.components.httpclient.HttpClientUtils;
-import org.lucius.components.httpclient.common.HttpConfig;
-import org.lucius.components.httpclient.exception.HttpProcessException;
 import org.lucius.components.redis.IRedisService;
 import org.lucius.iyanla.model.auth.User;
 import org.lucius.iyanla.service.auth.IUserService;
@@ -113,8 +108,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "/httpclient", method = RequestMethod.GET)
-    public String httpclient(Model model) throws IOException, HttpProcessException {
-        String html = HttpClientUtil.get(HttpConfig.custom().url("http://www.baidu.com/"));
+    public String httpclient(Model model) {
+        String html = HttpClientUtils.get("http://www.baidu.com/");
         model.addAttribute("html", html);
         return "html";
     }
@@ -166,22 +161,6 @@ public class UserController {
                 break;
         }
         return cs;
-    }
-    
-    
-    public static void main(String[] args) throws ClientProtocolException, IOException {
-        
-        HttpClientUtils hcu = new HttpClientUtils();
-        Map<String, List<User>> x = hcu.doGet("http://localhost:8080/iyanla/auth/app/user/toJson", new TypeReference<Map<String, List<User>>>() { });
-        
-        for(Entry<String, List<User>> entry : x.entrySet()){
-            System.out.println(entry.getKey());
-            for(User user : entry.getValue()){
-                System.out.println("\t\t" + JsonUtils.toJson(user));
-            }
-            System.out.println();
-        }
-        
     }
 
 }
